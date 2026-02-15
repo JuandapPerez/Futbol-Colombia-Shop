@@ -79,7 +79,7 @@
       clearError();
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
-      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
 
       if (prefillCombo) {
         comboSel.value = String(prefillCombo);
@@ -94,7 +94,7 @@
     function close() {
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
-      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
     }
 
     // Delegación: botones que abren el modal

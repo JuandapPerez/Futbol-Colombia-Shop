@@ -988,15 +988,20 @@ code {
   inset: 0;
   display: none;
   z-index: 80;
+  /* Importante en móvil: permitir scroll dentro del modal */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 12px;
 }
 
 .modal.is-open {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .modal__backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.64);
   backdrop-filter: blur(10px);
@@ -1005,6 +1010,11 @@ code {
 .modal__panel {
   position: relative;
   width: min(100% - 1.4rem, 860px);
+  margin: 12px 0;
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
@@ -1012,9 +1022,10 @@ code {
     radial-gradient(900px 380px at 85% 40%, rgba(200, 30, 42, 0.14), transparent 60%),
     rgba(7, 11, 19, 0.92);
   box-shadow: var(--shadow);
-  overflow: hidden;
   transform: translateY(6px);
   animation: modalIn 260ms var(--ease-out) both;
+  /* Asegurar que el panel sea scrolleable (sobre todo en móvil) */
+  overflow: auto;
 }
 
 @keyframes modalIn {
