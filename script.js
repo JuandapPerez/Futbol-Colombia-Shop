@@ -56,7 +56,9 @@
     if (!modal || !form || !errorBox) return;
 
     const comboSel = form.elements.namedItem("combo");
-    const tallaSel = form.elements.namedItem("talla");
+    const sizesHost = $("#sizesHost", form);
+    const sizesLabel = $("#sizesLabel", form);
+    const sizesHint = $("#sizesHint", form);
     const celular = form.elements.namedItem("celular");
     const nombres = form.elements.namedItem("nombres");
     const apellidos = form.elements.namedItem("apellidos");
@@ -64,6 +66,53 @@
     const barrio = form.elements.namedItem("barrio");
     const detalle = form.elements.namedItem("detalle");
     const ciudad = form.elements.namedItem("ciudad");
+
+    if (!comboSel || !celular || !nombres || !apellidos || !direccion || !barrio || !detalle || !ciudad || !sizesHost || !sizesLabel || !sizesHint) return;
+
+    const SIZE_OPTIONS = ["S", "M", "L", "XL", "XXL"];
+
+    function getSizeCount(comboValue) {
+      const n = Number(String(comboValue || "").trim());
+      if (n === 2) return 2;
+      if (n === 3) return 3;
+      return 1;
+    }
+
+    function renderSizeSelect(index, valueToKeep = "") {
+      const sel = document.createElement("select");
+      sel.className = "field__control";
+      sel.name = `talla${index}`;
+      sel.required = true;
+      sel.setAttribute("aria-label", `Talla ${index}`);
+
+      const opt0 = document.createElement("option");
+      opt0.value = "";
+      opt0.textContent = "Selecciona…";
+      sel.appendChild(opt0);
+
+      for (const s of SIZE_OPTIONS) {
+        const opt = document.createElement("option");
+        opt.value = s;
+        opt.textContent = s;
+        sel.appendChild(opt);
+      }
+
+      if (valueToKeep) sel.value = valueToKeep;
+      return sel;
+    }
+
+    function updateSizes() {
+      const count = getSizeCount(comboSel.value);
+      const prev = $$("select", sizesHost).map((s) => String(s.value || ""));
+
+      sizesHost.innerHTML = "";
+      for (let i = 1; i <= count; i++) {
+        sizesHost.appendChild(renderSizeSelect(i, prev[i - 1] || ""));
+      }
+
+      sizesLabel.textContent = count === 1 ? "Talla" : "Tallas";
+      sizesHint.textContent = `Selecciona ${count} talla${count === 1 ? "" : "s"}.`;
+    }
 
     function showError(message) {
       errorBox.textContent = message;
@@ -84,6 +133,8 @@
       if (prefillCombo) {
         comboSel.value = String(prefillCombo);
       }
+
+      updateSizes();
 
       // Enfocar el primer campo
       window.setTimeout(() => {
@@ -117,6 +168,9 @@
       if (e.key === "Escape" && modal.classList.contains("is-open")) close();
     });
 
+    comboSel.addEventListener("change", updateSizes);
+    updateSizes();
+
     function normalizePhone(raw) {
       // Dejar solo dígitos. Si pegan +57/57, conservamos los últimos 10.
       let digits = String(raw || "").replace(/\D+/g, "");
@@ -139,7 +193,13 @@
       clearError();
 
       const combo = String(comboSel.value || "").trim();
-      const talla = String(tallaSel.value || "").trim();
+      const sizeCount = getSizeCount(combo);
+      const tallas = [];
+      for (let i = 1; i <= sizeCount; i++) {
+        const el = form.elements.namedItem(`talla${i}`);
+        const v = String(el && "value" in el ? el.value : "").trim();
+        tallas.push(v);
+      }
       const phone = normalizePhone(celular.value);
       const name = String(nombres.value || "").trim();
       const last = String(apellidos.value || "").trim();
@@ -149,7 +209,12 @@
       const city = String(ciudad.value || "").trim();
 
       if (!required(combo)) return showError("Selecciona un combo (1, 2 o 3).");
-      if (!required(talla)) return showError("Selecciona tu talla.");
+      for (let i = 0; i < tallas.length; i++) {
+        if (!required(tallas[i])) {
+          const n = i + 1;
+          return showError(sizeCount === 1 ? "Selecciona tu talla." : `Selecciona la talla ${n} (de ${sizeCount}).`);
+        }
+      }
       if (!required(phone) || phone.length !== 10) return showError("Ingresa un número de celular válido (10 dígitos).");
       if (!required(name)) return showError("Ingresa tus nombres.");
       if (!required(last)) return showError("Ingresa tus apellidos.");
@@ -158,8 +223,13 @@
       if (!required(more)) return showError("Completa casa/apto, número y conjunto.");
       if (!required(city)) return showError("Ingresa tu departamento/ciudad.");
 
+      const tallaLine =
+        tallas.length === 1
+          ? `talla ${tallas[0]}`
+          : `tallas ${tallas.join(" + ")}`;
+
       const plain =
-        `${BASE_GREETING} Combo ${combo} (talla ${talla}).\n\n` +
+        `${BASE_GREETING} Combo ${combo} (${tallaLine}).\n\n` +
         `Datos:\n` +
         `- Nombre: ${name} ${last}\n` +
         `- Celular: ${phone}\n` +

@@ -463,17 +463,11 @@
             <span class="field__hint">Elige 1, 2 o 3.</span>
           </label>
 
-          <label class="field">
-            <span class="field__label">Talla</span>
-            <select class="field__control" name="talla" required>
-              <option value="">Selecciona…</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
-            </select>
-          </label>
+          <div class="field field--full" id="sizesField">
+            <span class="field__label" id="sizesLabel">Talla</span>
+            <div class="sizesGrid" id="sizesHost" aria-describedby="sizesHint"></div>
+            <span class="field__hint" id="sizesHint">Selecciona 1 talla.</span>
+          </div>
 
           <label class="field">
             <span class="field__label">Número de celular</span>

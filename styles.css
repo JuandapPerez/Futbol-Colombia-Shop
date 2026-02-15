@@ -1255,6 +1255,24 @@ select.field__control option {
   font-size: 0.9rem;
 }
 
+.sizesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 860px) {
+  .sizesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .sizesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .field--full {
   grid-column: 1 / -1;
 }
