@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1b3a" />
+  <meta name="description" content="Camisetas Selección Colombia Mundial 2026. Combos con caja de regalo, calidad premium y entrega rápida. Compra por WhatsApp." />
+
+  <title>Selección Colombia 2026 | Camisetas Premium</title>
+
+  <!-- Favicon: mismo logo del header -->
+  <link rel="icon" type="image/png" href="imagenes/logotrasparente.png" />
+
+  <!-- Tipografías (solo frontend; Google Fonts). Si prefieres 100% offline, dime y lo cambio. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Confeti (canvas encima de todo). Se activa al presionar CTA final. -->
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <a class="skip" href="#combos">Saltar al contenido</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar__inner">
+      <div class="brand" aria-label="Marca">
+        <img class="brand__logo" src="imagenes/logotrasparente.png" alt="Logo Futbol Colombia" width="44" height="44" />
+        <div class="brand__text">
+          <strong class="brand__name">Futbol Colombia</strong>
+          <span class="brand__tag">Mundial 2026 · Edición Especial</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="nav__link" href="#combos">Combos</a>
+        <a class="nav__link" href="#beneficios">Beneficios</a>
+        <a class="nav__link" href="#testimonios">Testimonios</a>
+        <a class="nav__link" href="#experiencia">Experiencia</a>
+      </nav>
+
+      <button class="btn btn--sm btn--buy" data-open-modal="true" data-prefill-combo="" type="button" aria-label="Comprar ahora">
+        Comprar ahora
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / PORTADA -->
+    <section class="hero" aria-label="Portada">
+      <!-- Fondo con parallax: imagen1.png -->
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <div class="hero__copy" data-reveal>
+          <p class="kicker">Edición mundial 2026 · La camiseta que representa orgullo tricolor</p>
+          <h1 class="hero__title">COLOMBIA SOMOS TODOS EN EL MUNDIAL 2026</h1>
+          <p class="hero__subtitle">TÚ TRANQUILO! Manejamos camisetas premium de la más alta calidad con Detalles impecables.<br><br>Está es una edición especial limitada que incluye su caja especial, listos para enviar hoy mismo</p>
+
+          <div class="hero__cta">
+            <button class="btn btn--xl btn--primary btn--buy" data-open-modal="true" data-prefill-combo="" type="button">
+              Comprar ahora
+            </button>
+            <div class="trust" aria-label="Indicadores de confianza">
+              <div class="trust__item">✔ Calidad premium</div>
+              <div class="trust__item">⚡ Entrega rápida</div>
+              <div class="trust__item">🛡 Garantía</div>
+            </div>
+          </div>
+
+          <!-- Badges de confianza (envío/contraentrega) -->
+          <div class="badges" data-reveal aria-label="Beneficios de compra">
+            <div class="badge2">
+              <span class="badge2__icon" aria-hidden="true">🚚</span>
+              <span class="badge2__text">Envíos gratis</span>
+            </div>
+            <div class="badge2 badge2--secure">
+              <span class="badge2__icon" aria-hidden="true">💰</span>
+              <span class="badge2__text">Pago contraentrega disponible en Bogotá</span>
+            </div>
+          </div>
+
+          <!-- Extra: contador regresivo a inicio del Mundial 2026 (fecha ajustable en JS). -->
+          <div class="countdown" data-reveal aria-label="Contador regresivo al Mundial 2026">
+            <div class="countdown__label">Cuenta regresiva</div>
+            <div class="countdown__grid" role="timer" aria-live="polite">
+              <div class="time"><span class="time__num" id="cd-days">--</span><span class="time__unit">Días</span></div>
+              <div class="time"><span class="time__num" id="cd-hours">--</span><span class="time__unit">Horas</span></div>
+              <div class="time"><span class="time__num" id="cd-mins">--</span><span class="time__unit">Min</span></div>
+              <div class="time"><span class="time__num" id="cd-secs">--</span><span class="time__unit">Seg</span></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero__card" data-reveal aria-label="Oferta rápida">
+          <div class="pricebox">
+            <div class="pricebox__top">
+              <span class="chip chip--hot">Top ventas</span>
+              <span class="chip">Stock limitado</span>
+            </div>
+            <h2 class="pricebox__title">Listo para regalar</h2>
+            <p class="pricebox__text">Combos con caja premium. Ideal para hinchas y coleccionistas.</p>
+
+            <div class="pricebox__highlights" role="list">
+              <div class="hl" role="listitem">• Tela premium y acabado deportivo</div>
+              <div class="hl" role="listitem">• Colores vivos estilo selección</div>
+              <div class="hl" role="listitem">• Atención directa por WhatsApp</div>
+            </div>
+
+            <button class="btn btn--lg btn--outline btn--buy" data-open-modal="true" data-prefill-combo="2" type="button" aria-label="Comprar ahora combo 2">
+              Comprar ahora
+            </button>
+            <p class="micro">Respuesta rápida · Pedido guiado</p>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Sello inferior -->
+      <div class="hero__ribbon" aria-hidden="true"></div>
+    </section>
+
+    <!-- SECCIÓN COMBOS DESTACADOS -->
+    <section class="section" id="combos" aria-label="Combos destacados">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <h2 class="section__title">Combos destacados</h2>
+          <p class="section__subtitle">Elige el combo perfecto para vivir el Mundial con actitud. Botón directo a WhatsApp con mensaje prellenado.</p>
+        </div>
+
+        <div class="grid combos" role="list">
+          <!-- Combo 1 -->
+          <article class="card combo" role="listitem" data-reveal>
+            <div class="combo__media">
+              <img src="imagenes/combo1.png" alt="Combo 1: 1 camiseta + caja de regalo" loading="lazy" />
+            </div>
+            <div class="combo__body">
+              <h3 class="combo__title">Combo 1</h3>
+              <p class="combo__desc">1 camiseta + caja de regalo</p>
+              <div class="combo__price" aria-label="Precio">$99.990 <span class="combo__cur">COP</span></div>
+
+              <button class="btn btn--md btn--primary btn--buy" data-open-modal="true" data-prefill-combo="1" type="button" aria-label="Comprar ahora combo 1">
+                Comprar ahora
+              </button>
+            </div>
+          </article>
+
+          <!-- Combo 2 -->
+          <article class="card combo" role="listitem" data-reveal>
+            <div class="combo__media">
+              <img src="imagenes/combo2.png" alt="Combo 2: 2 camisetas + 2 cajas" loading="lazy" />
+            </div>
+            <div class="combo__body">
+              <h3 class="combo__title">Combo 2</h3>
+              <p class="combo__desc">2 camisetas + 2 cajas</p>
+              <div class="combo__price" aria-label="Precio">$159.990 <span class="combo__cur">COP</span></div>
+
+              <button class="btn btn--md btn--primary btn--buy" data-open-modal="true" data-prefill-combo="2" type="button" aria-label="Comprar ahora combo 2">
+                Comprar ahora
+              </button>
+            </div>
+          </article>
+
+          <!-- Combo 3 -->
+          <article class="card combo combo--most" role="listitem" data-reveal>
+            <div class="badge badge--glow" aria-label="Más vendido">🔥 Más vendido</div>
+            <div class="combo__media">
+              <img src="imagenes/combo3.png" alt="Combo 3: 3 camisetas + 3 cajas" loading="lazy" />
+            </div>
+            <div class="combo__body">
+              <h3 class="combo__title">Combo 3</h3>
+              <p class="combo__desc">3 camisetas + 3 cajas</p>
+              <div class="combo__price" aria-label="Precio">$214.990 <span class="combo__cur">COP</span></div>
+
+              <button class="btn btn--md btn--primary btn--buy" data-open-modal="true" data-prefill-combo="3" type="button" aria-label="Comprar ahora combo 3">
+                Comprar ahora
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Social proof / confianza (más profesional y realista) -->
+        <section class="socialPro" aria-label="Prueba social" data-reveal>
+          <article class="socialPro__card" aria-label="Pedidos últimos 30 días">
+            <div class="socialPro__top">
+              <span class="socialPro__pill">Verificado</span>
+              <span class="socialPro__label">Últimos 30 días</span>
+            </div>
+            <div class="socialPro__metric">
+              <span class="socialPro__num" data-count="1236">1236</span>
+              <span class="socialPro__unit">pedidos</span>
+            </div>
+            <p class="socialPro__text">Más de <strong>1236</strong> pedidos confirmados. Atención por WhatsApp y despacho ágil.</p>
+          </article>
+
+          <article class="socialPro__card" aria-label="Atención">
+            <div class="socialPro__top">
+              <span class="socialPro__pill socialPro__pill--gold">Calificación</span>
+              <span class="socialPro__label">Experiencia</span>
+            </div>
+            <div class="socialPro__rating" aria-label="Calificación 4.9 de 5">
+              <div class="starsRow" aria-hidden="true">
+                <svg class="starSvg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 2.8l2.95 6.02 6.65.97-4.8 4.68 1.13 6.62L12 18.96l-5.93 3.11 1.13-6.62-4.8-4.68 6.65-.97L12 2.8z"/></svg>
+                <svg class="starSvg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 2.8l2.95 6.02 6.65.97-4.8 4.68 1.13 6.62L12 18.96l-5.93 3.11 1.13-6.62-4.8-4.68 6.65-.97L12 2.8z"/></svg>
+                <svg class="starSvg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 2.8l2.95 6.02 6.65.97-4.8 4.68 1.13 6.62L12 18.96l-5.93 3.11 1.13-6.62-4.8-4.68 6.65-.97L12 2.8z"/></svg>
+                <svg class="starSvg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 2.8l2.95 6.02 6.65.97-4.8 4.68 1.13 6.62L12 18.96l-5.93 3.11 1.13-6.62-4.8-4.68 6.65-.97L12 2.8z"/></svg>
+                <svg class="starSvg starSvg--soft" viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M12 2.8l2.95 6.02 6.65.97-4.8 4.68 1.13 6.62L12 18.96l-5.93 3.11 1.13-6.62-4.8-4.68 6.65-.97L12 2.8z"/></svg>
+              </div>
+              <div class="socialPro__metric">
+                <span class="socialPro__num">4.9</span>
+                <span class="socialPro__unit">/ 5</span>
+              </div>
+            </div>
+            <p class="socialPro__text">Excelente atención: respuestas rápidas y guía para tallas, combos y envío.</p>
+          </article>
+
+          <article class="socialPro__card" aria-label="Entregas">
+            <div class="socialPro__top">
+              <span class="socialPro__pill socialPro__pill--blue">Logística</span>
+              <span class="socialPro__label">Cumplimiento</span>
+            </div>
+            <div class="socialPro__metric">
+              <span class="socialPro__num">24–48</span>
+              <span class="socialPro__unit">h</span>
+            </div>
+            <p class="socialPro__text">Entregas a tiempo y comunicación clara del proceso.</p>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <!-- SECCIÓN BENEFICIOS -->
+    <section class="section section--alt" id="beneficios" aria-label="Beneficios">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <h2 class="section__title">Beneficios</h2>
+          <p class="section__subtitle">Todo lo que esperas de una camiseta con sensación premium deportiva.</p>
+        </div>
+
+        <div class="grid benefits" role="list">
+          <article class="card benefit" role="listitem" data-reveal>
+            <div class="benefit__icon" aria-hidden="true">🏅</div>
+            <h3 class="benefit__title">Calidad premium</h3>
+            <p class="benefit__text">Material cómodo, resistente y con acabado deportivo para uso diario.</p>
+          </article>
+
+          <article class="card benefit" role="listitem" data-reveal>
+            <div class="benefit__icon" aria-hidden="true">⭐</div>
+            <h3 class="benefit__title">Edición especial 2026</h3>
+            <p class="benefit__text">Diseño inspirado en el Mundial: orgullo, historia y energía tricolor.</p>
+          </article>
+
+          <article class="card benefit" role="listitem" data-reveal>
+            <div class="benefit__icon" aria-hidden="true">⚡</div>
+            <h3 class="benefit__title">Entrega rápida</h3>
+            <p class="benefit__text">Despacho ágil y comunicación clara para que la recibas sin estrés.</p>
+          </article>
+
+          <article class="card benefit" role="listitem" data-reveal>
+            <div class="benefit__icon" aria-hidden="true">🛡</div>
+            <h3 class="benefit__title">Garantía</h3>
+            <p class="benefit__text">Compra con tranquilidad. Resolvemos cualquier novedad de forma directa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS (Carrusel) -->
+    <section class="section" id="testimonios" aria-label="Testimonios">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <h2 class="section__title">Testimonios</h2>
+          <p class="section__subtitle">La vibra se siente. Mira lo que dicen otros hinchas.</p>
+        </div>
+
+        <div class="carousel" data-reveal>
+          <div class="carousel__track" id="carouselTrack" aria-live="polite"></div>
+
+          <div class="carousel__controls" aria-label="Controles del carrusel">
+            <button class="iconbtn" id="prevBtn" type="button" aria-label="Anterior">‹</button>
+            <div class="dots" id="dots" aria-label="Indicadores"></div>
+            <button class="iconbtn" id="nextBtn" type="button" aria-label="Siguiente">›</button>
+          </div>
+
+          <p class="carousel__hint">Auto-rotación cada 5s · Pausa al pasar el mouse</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA FUTBOLERA -->
+    <section class="stadium" id="experiencia" aria-label="Experiencia futbolera">
+      <div class="stadium__texture" aria-hidden="true"></div>
+      <div class="stadium__lights" aria-hidden="true"></div>
+
+      <div class="container stadium__inner">
+        <div class="stadium__copy" data-reveal>
+          <h2 class="stadium__title">Energía de estadio. Orgullo colombiano.</h2>
+          <p class="stadium__text">Cada partido es una historia. Vístete como si estuvieras en la tribuna: pasión, celebración y el tricolor al frente.</p>
+
+          <div class="stadium__pills" role="list" aria-label="Puntos clave">
+            <span class="pill" role="listitem">🔥 Vibra mundialista</span>
+            <span class="pill" role="listitem">💛💙❤️ Colores icónicos</span>
+            <span class="pill" role="listitem">🏟 Estilo premium</span>
+          </div>
+        </div>
+
+        <div class="stadium__stats" data-reveal aria-label="Micro métricas">
+          <div class="stat">
+            <div class="stat__num">4.9/5</div>
+            <div class="stat__label">Satisfacción</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">+1.2k</div>
+            <div class="stat__label">Hinchas felices</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">24-48h</div>
+            <div class="stat__label">Despacho</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE VIDEOS -->
+    <section class="section" id="videos" aria-label="Videos">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <h2 class="section__title">Videos</h2>
+          <p class="section__subtitle">Mira detalles de la calidad, la caja y el estilo. Soporta embed o video local.</p>
+        </div>
+
+        <div class="grid videos" data-reveal>
+          <!-- Opción 1: embed (YouTube/Vimeo). Reemplaza el src cuando tengas el video real. -->
+          <div class="videocard" aria-label="Video promocional (embed)">
+            <div class="videocard__frame">
+              <iframe
+                title="Video promocional"
+                src="about:blank"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="videocard__body">
+              <h3 class="videocard__title">Promo Mundial 2026</h3>
+              <p class="videocard__text">Cambia este video por el tuyo (embed) sin tocar JS.</p>
+            </div>
+          </div>
+
+          <!-- Opción 2: video local (coloca el archivo en /videos si deseas). -->
+          <div class="videocard" aria-label="Video demostrativo (local)">
+            <div class="videocard__frame">
+              <video controls preload="metadata">
+                <!--
+                  Si vas a usar video local, crea una carpeta /videos y coloca el archivo.
+                  Ejemplo: videos/demo.mp4
+                -->
+                <source src="" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+              </video>
+            </div>
+            <div class="videocard__body">
+              <h3 class="videocard__title">Detalles y empaque</h3>
+              <p class="videocard__text">Puedes dejar este bloque vacío o apuntarlo a un mp4 local.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL GRANDE -->
+    <section class="final" aria-label="CTA final">
+      <div class="container final__inner" data-reveal>
+        <h2 class="final__title">¿Listo para el Mundial 2026?</h2>
+        <p class="final__text">Haz tu pedido hoy. Atención directa por WhatsApp y combos listos para regalar.</p>
+
+        <div class="final__actions">
+          <button class="btn btn--xl btn--primary btn--pulse btn--buy" data-open-modal="true" data-prefill-combo="" type="button" id="finalCta">
+            Comprar ahora
+          </button>
+          <button class="btn btn--xl btn--outline" type="button" id="confettiBtn" aria-label="Celebrar con confeti">
+            Celebrar
+          </button>
+        </div>
+
+        <p class="micro">Tip: si ya sabes tu combo, elige uno arriba y el mensaje irá listo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="brand" aria-label="Brand footer">
+          <span class="brand__badge" aria-hidden="true">COL</span>
+          <div class="brand__text">
+            <strong class="brand__name">Selección Colombia</strong>
+            <span class="brand__tag">Mundial 2026 · Orgullo Tricolor</span>
+          </div>
+        </div>
+        <p class="footer__note">Landing demo (solo frontend). Redes y contacto simulados.</p>
+      </div>
+
+      <div class="footer__cols" aria-label="Enlaces">
+        <div class="footer__col">
+          <h3 class="footer__title">Contacto</h3>
+          <p class="footer__link">WhatsApp: <span class="mono">+57 311 265 5979</span></p>
+          <p class="footer__link">Horario: 9:00 a.m. – 7:00 p.m.</p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Redes</h3>
+          <a class="footer__link" href="#" aria-label="Instagram (simulado)">Instagram</a>
+          <a class="footer__link" href="#" aria-label="TikTok (simulado)">TikTok</a>
+          <a class="footer__link" href="#" aria-label="Facebook (simulado)">Facebook</a>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Legal</h3>
+          <a class="footer__link" href="#" aria-label="Términos (simulado)">Términos</a>
+          <a class="footer__link" href="#" aria-label="Privacidad (simulado)">Privacidad</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 · Hecho con pasión futbolera</span>
+        <span class="footer__divider" aria-hidden="true">·</span>
+        <span>💛💙❤️ Colombia</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL / FORMULARIO DE COMPRA (flujo de conversión) -->
+  <div class="modal" id="orderModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close-modal="true" aria-hidden="true"></div>
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <div>
+          <h2 class="modal__title" id="modalTitle">Finaliza tu pedido</h2>
+          <p class="modal__subtitle">Completa tus datos y te enviamos a WhatsApp con el mensaje listo.</p>
+        </div>
+        <button class="iconbtn modal__close" type="button" data-close-modal="true" aria-label="Cerrar">×</button>
+      </div>
+
+      <form class="form" id="orderForm" novalidate>
+        <div class="form__grid">
+          <label class="field">
+            <span class="field__label">Combo</span>
+            <select class="field__control" name="combo" required>
+              <option value="">Selecciona…</option>
+              <option value="1">Combo 1</option>
+              <option value="2">Combo 2</option>
+              <option value="3">Combo 3</option>
+            </select>
+            <span class="field__hint">Elige 1, 2 o 3.</span>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Talla</span>
+            <select class="field__control" name="talla" required>
+              <option value="">Selecciona…</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Número de celular</span>
+            <input class="field__control" name="celular" type="tel" inputmode="numeric" autocomplete="tel" placeholder="Ej: 3112655979" maxlength="10" pattern="\d{10}" aria-describedby="celularHint" required />
+            <span class="field__hint" id="celularHint">10 dígitos (sin +57).</span>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Nombres</span>
+            <input class="field__control" name="nombres" autocomplete="given-name" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Apellidos</span>
+            <input class="field__control" name="apellidos" autocomplete="family-name" required />
+          </label>
+
+          <label class="field field--full">
+            <span class="field__label">Dirección completa</span>
+            <input class="field__control" name="direccion" autocomplete="street-address" placeholder="Calle / Carrera / Número" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Barrio</span>
+            <input class="field__control" name="barrio" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Casa o apto + número + conjunto</span>
+            <input class="field__control" name="detalle" placeholder="Apto 304 · Torre 2 · Conjunto…" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Departamento / ciudad</span>
+            <input class="field__control" name="ciudad" placeholder="Cundinamarca / Bogotá" required />
+          </label>
+        </div>
+
+        <div class="form__actions">
+          <button class="btn btn--xl btn--primary" type="submit" id="submitOrder">
+            Finalizar pedido ahora vía WhatsApp
+          </button>
+          <p class="micro">Al enviar, se abrirá WhatsApp al número oficial con tu pedido listo.</p>
+        </div>
+
+        <div class="form__error" id="formError" role="alert" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
