@@ -354,20 +354,17 @@
         </div>
 
         <div class="grid videos" data-reveal>
-          <!-- Opción 1: embed (YouTube/Vimeo). Reemplaza el src cuando tengas el video real. -->
-          <div class="videocard" aria-label="Video promocional (embed)">
+          <!-- Video 1: local (desde /videos) -->
+          <div class="videocard" aria-label="Video demostrativo 1 (local)">
             <div class="videocard__frame">
-              <iframe
-                title="Video promocional"
-                src="about:blank"
-                loading="lazy"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
+              <video controls preload="metadata">
+                <source src="videos/IMG_5213.mp4" type="video/mp4" />
+                <source src="videos/IMG_5213.MOV" type="video/quicktime" />
+                Tu navegador no soporta video HTML5.
+              </video>
             </div>
             <div class="videocard__body">
-              <h3 class="videocard__title">Promo Mundial 2026</h3>
+              <h3 class="videocard__title">Calidad y detalles</h3>
             </div>
           </div>
 
@@ -376,10 +373,11 @@
             <div class="videocard__frame">
               <video controls preload="metadata">
                 <!--
-                  Si vas a usar video local, crea una carpeta /videos y coloca el archivo.
-                  Ejemplo: videos/demo.mp4
+                  Video local desde la carpeta /videos.
+                  Si cambias el nombre/format, actualiza el src.
                 -->
-                <source src="" type="video/mp4" />
+                <source src="videos/IMG_5214.mp4" type="video/mp4" />
+                <source src="videos/IMG_5214.MOV" type="video/quicktime" />
                 Tu navegador no soporta video HTML5.
               </video>
             </div>

@@ -1090,7 +1090,7 @@ code {
 }
 
 .videocard__frame {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
   background:
     radial-gradient(650px 260px at 20% 30%, rgba(247, 209, 23, 0.12), transparent 60%),
     rgba(0, 0, 0, 0.22);
@@ -1103,6 +1103,10 @@ code {
   height: 100%;
   border: 0;
   display: block;
+}
+
+.videocard__frame video {
+  object-fit: contain;
 }
 
 .videocard__body {
